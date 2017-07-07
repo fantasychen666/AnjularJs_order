@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body ng-app="app">
+
+<h1>AngularJs_first_Day</h1>
+
+<p ng-controller="mycontrol">以下是一个小段落<br> {{today}}   {{last}}   {{lastLast}}brLorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt saepe quo fuga minima dolores tempora nulla, porro. Ipsa vero iste, odio ab, obcaecati iusto, at non repellendus explicabo necessitatibus minus.</p>
+
+<input type="text" ng-model="a">
+<input type="text" ng-model="b">
+<p>{{a}}+{{b}}={{a+b}}</p>
+
+
+
+
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+//创建模块
+//AngularJs提供了一个全局对象angular ,通过angular来创建一个模块，
+//传两个参数,字符串和一个数组
+//字符串和ng-app的值一致,定义一个应用的作用范围
+//数组里是这个应用所依赖的模块
+
+var app = angular.module('app',[]);
+	//通过app模块创建控制器
+	//mycontrol表示controller的名字，与ng-controller 的属性值保持一致
+	//$scope是一个空的值
+	app.controller("mycontrol",["$scope",function($scope){
+	$scope.today = "AngularJs";
+	$scope.last  = "jQuery";
+	$scope.lastLast = "HTML";
+	}]);
+</script>
+
+
+    </body>
+</html>

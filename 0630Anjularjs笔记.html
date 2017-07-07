@@ -1,0 +1,128 @@
+ - AngularJs - 
+	1.什么是AngularJs?
+	  是一个前端JavaScript 框架，以数据和逻辑为核心(驱动)
+	
+	2.设计模式：MVC思想  Model View Controller
+		模型  视图  控制	
+
+	Model:主要用来处理数据，一般指操作数据库
+	View:主要用来展示数据,一般通过HTML展示
+	Controller:连接 模型与视图的桥梁
+
+	
+
+	3.AngularJs的模块化概念(module)
+	使用AngularJs构建一个应用程序是以模块的方式组织的
+	AngularJs应用程序的编写分为三大步：
+	(1) 定义应用  ng-app="app"
+	(2) 定义模块  var app = angular.module("app",[]);
+	module里有两个参数，第一个是应用名称，第二个是数组。
+	数组里是该模块所依赖的模块。
+	(3) 定义控制器  app.controller("ctrl",[]);
+		controller里有两个参数，第一个是控制器的名称，第二个是数组
+		数组里有多个元素，其中前面的是字符串，AngularJs自己定义好的东西，
+		最后一个元素为function(){} 
+	4.AngularJs 的指令
+		AngularJs自己已经定义好的指令，内置指令。
+		都是以ng- 为开头
+
+	a、ng-app=" "  定义angularJS的使用范围；(指定引用的根目录，
+	至少有一个元素指定了此属性)
+	b、ng-init="变量=值;变量='值'"  初始化变量的值，有多个变量时，中间用分号隔开；
+	c、ng-model="变量"  定义变量名；(定义绑定数据的名称)
+	d、ng-bind="变量"  绑定变量名，获取该变量的数据。这里的变量就是c条的变量名。但是一般都用双重花括号来获取变量的值，比如：{{变量}}。
+	e.ng-controller  定义控制器作用的范围
+	f.ng-show/ng-hide 显示或隐藏  (取值是1,true或0,false)
+ 	g. ng-click:单击
+ 	h. ng-if: 判断某个节点是否存在，存在即显示，不存在就不显示
+	i. ng-repeat :遍历，迭代
+	j. ng-src:改变url
+	k. ng-switch:切换
+	   ng-class:添加的类，为true,添加成功，false,未添加
+	   ng-disabled:无法操作
+	   ng-readonly:只读，无法操作
+	   ng-checked:一般用于单选或者多选
+	   ng-selected:一般用于下拉列表
+	   ng-include:用于引入另一个页面文件
+			注意点：使用ng-include时，页面发送请求的，需要通过服务器访问。
+			ng-include="'路径'";外面是双引号，里面是单引号
+
+	5.自定义指令
+	  	通过模块调用directive方法来定义指令
+		定义好的指令有4种方法去使用
+		元素，属性，  类，  注释
+		 E      A      C      M
+	  其中E(element)和A(attribute) 是默认都可以使用的方式
+	  如果需要通过类名或注释来调用。需要添加restrict,设置添加C或M
+	  如果不加restrict,默认restrict就是EA，如果添加了，默认的就无效了.
+	  如果通过注释去调用指令，还需要添加一个replace:true(不添加无效)
+
+	  注意：在使用注释的方式时，需要有新的元素节点来替换原来注释的地方。
+
+	  如果访问的是一个普通的字符串，使用template就可以，
+	  如果访问的是一个外部url，需要使用templateUrl，同时，需要使用服务器访问
+ <script type="text/javascript">
+    var app = angular.module("app",[]);//声明模块
+    app.directive("selfOrder",function(){
+    	return {
+    		restrict:"C",//或者restrict:"M"
+    		//replace:true,
+    		template:"自定义指令"
+    	 }
+    });
+    //名称通常使用驼峰命名法
+    //调用directive方法创建自定义的指令,两个参数，字符串作为自定义指令名，function
+    </script>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

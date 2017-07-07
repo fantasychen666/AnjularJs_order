@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    
+	<title>内置指令</title>
+    <style>
+.red{color: red;}
+.blue{color: skyblue;}
+
+
+    </style>
+    </head>
+    <body ng-app="app">
+	
+<!-- ng-repeat指令 -->
+<div ng-controller="ctr1">
+<ul>
+	<li ng-repeat="(key,val) in stu">{{key}}{{val}}</li>
+	<br>
+	<li ng-repeat="(key,val) in arr">{{key}}+{{val}}</li>
+</ul>
+
+<img ng-src="{{path}}" width="500" height="300">
+
+
+<select name="" id="" ng-model="select">
+	<option value="01">HTML</option>
+	<option value="02">CSS3</option>
+	<option value="03">JavaScript</option>
+
+</select>
+<div ng-switch="select">
+	<div ng-switch-when="01">HTML...
+		<ul>
+			<li>html-base</li>
+			<li>html-middle</li>
+			<li>html-advance</li>
+		</ul>
+	</div>
+	<div ng-switch-when="02">CSS...</div>
+	<div ng-switch-when="03">JavaScript...</div>
+</div>
+
+
+<!-- ng-class -->
+<ul>
+	<li class="red">红色</li>
+	<li ng-class="{blue:false,red:true}">蓝色</li>
+</ul>
+
+
+<button type="button" ng-disabled="true">无法操作</button>
+<input type="text" value="只读，无法输入" ng-disabled="true">
+<ul>
+	<input type="checkbox">游泳
+	<input type="checkbox" ng-checked="true">跑步
+	<input type="checkbox">画画
+</ul>
+<!-- ng-selected -->
+<select>
+	<option value="11">南京</option>
+	<option value="22">无锡</option>
+	<option value="33" ng-selected="true">盐城</option>
+	<option value="44">苏州</option>
+</select>
+<!-- ng-include -->
+
+
+
+
+</div>
+
+<div ng-include="'footer.html'">88</div>
+
+
+
+
+
+	</body>
+    
+
+    <script src="angular.min.js"></script>
+    <script >
+    var app = angular.module("app",[]);
+    app.controller("ctr1",["$scope",function($scope){
+    	$scope.stu = {"小明":89,"小红":88,"小东":90,"小蓝":95};
+    	$scope.path= "img/5832b76c05a7e.jpg";
+    	$scope.arr =[{name:"xiaomi"},{age:20},{job:"web"}];
+    }]);
+    var arr = [{name:"xiaomi"},{age:20},{job:"web"}];
+    console.log(arr);
+
+
+    </script>
+
+    
+</html>

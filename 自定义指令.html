@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="angular.min.js"></script>
+    </head>
+<body ng-app="app">
+
+<h2>属性形式使用自定义指令</h2>
+<div self-order></div>
+<h1>标签形式使用自定义属性</h1>
+<self-order></self-order>	
+
+<div class="self-order"></div>
+<!-- directive:self-order -->
+
+<div second-order></div>
+</body>
+    <script type="text/javascript">
+    var app = angular.module("app",[]);//声明模块
+    app.directive("selfOrder",function(){
+    	return {
+    		restrict:"ECAM",
+    		replace:true,
+    		template:"自定义指令"
+    	 }
+    });
+    app.directive("secondOrder",function(){
+    	return {
+    		templateUrl:"footer.html"
+    	}
+    });
+    //名称通常使用驼峰命名法
+    //调用directive方法创建自定义的指令,两个参数，字符串作为自定义指令名，function
+    //如果返回的的是一个URL，则需要通过服务器去访问。
+    </script>  
+</html>
